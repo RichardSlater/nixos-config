@@ -18,7 +18,7 @@ in
     <nixos-wsl/modules>
     ./hardware-configuration.nix
     ../common/richardsl.nix
-    ../common/openssh.nix
+    ../common/virtualization.nix
     <agenix/modules/age.nix>
     (fetchTarball "https://github.com/nix-community/nixos-vscode-server/tarball/master")
   ];

@@ -16,6 +16,7 @@ in
       <agenix/modules/age.nix>
       ../common/richardsl.nix
       ../common/openssh.nix
+      ../common/virtualization.nix
       (fetchTarball "https://github.com/nix-community/nixos-vscode-server/tarball/master")
     ];
 

@@ -17,8 +17,12 @@ in
     # include NixOS-WSL modules
     <nixos-wsl/modules>
     ./hardware-configuration.nix
+    ../common/richardsl.nix
+    <agenix/modules/age.nix>
     (fetchTarball "https://github.com/nix-community/nixos-vscode-server/tarball/master")
   ];
+
+  networking.hostName = "molasses";
 
   services.vscode-server.enable = true;
 
@@ -36,23 +40,14 @@ in
   hardware.pulseaudio.enable = false;
   services.libinput.enable = false;
 
-  programs.zsh = {
-    enable = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-  };
-
-  users.users.richardsl = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ];
-    packages = with pkgs; [
-      pkgs.unstable.chezmoi
-    ];
-    shell = pkgs.zsh;
-    hashedPassword = "$USER_HASHED_PASSWORD";
-  };
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [   
+    glibc
+    gcc.cc.lib 
+  ];
 
   environment.systemPackages = with pkgs; [
+    (pkgs.callPackage <agenix/pkgs/agenix.nix> {})
     pkgs.unstable.neovim
     pkgs.unstable.oh-my-posh
     pkgs.wget
@@ -69,7 +64,6 @@ in
     pkgs.gcc
     pkgs.gnumake
     pkgs.yarn
-    pkgs.gettext # required for envsubst
   ];
 
   system.copySystemConfiguration = true;

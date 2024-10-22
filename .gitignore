@@ -104,4 +104,4 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,linux,vim,dotenv,direnv
 
-./configuration_merged.nix
+/.cache

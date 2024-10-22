@@ -15,6 +15,7 @@ in
       ./hardware-configuration.nix
       <agenix/modules/age.nix>
       ../common/richardsl.nix
+      ../common/openssh.nix
       (fetchTarball "https://github.com/nix-community/nixos-vscode-server/tarball/master")
     ];
 
@@ -70,8 +71,6 @@ in
     pkgs.yarn
     pkgs.gettext # required for envsubst
   ];
-
-  services.openssh.enable = true;
 
   networking.firewall.allowedTCPPorts = [ 22 80 443 ];
   #networking.firewall.allowedUDPPorts = [ ... ];

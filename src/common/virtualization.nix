@@ -15,7 +15,7 @@
       nginxdemos-hello = {
         image = "nginxdemos/hello";
         autoStart = true;
-        ports = [ "0.0.0.0:8080:80" ];
+        ports = [ "0.0.0.0:8081:80" ];
       };
     };
   };

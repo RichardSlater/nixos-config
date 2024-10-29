@@ -7,4 +7,7 @@ let
 in
 {
   "user_hashed_password.age".publicKeys = [ richardsl brix0001 ];
+  "cloudflare_dns_zone_api_key.age".publicKeys = [ richardsl brix0001 ];
+  "cloudflare_account_email.age".publicKeys = [ richardsl brix0001 ];
+  "lets_encrypt_email.age".publicKeys = [ richardsl brix0001 ];
 }

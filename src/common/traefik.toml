@@ -1,0 +1,31 @@
+[api]
+  dashboard = true
+  debug = true
+  insecure = true
+
+[providers.docker]
+  endpoint = "unix:///var/run/docker.sock"
+
+[entryPoints.web]
+  address = ":80"
+
+  [entryPoints.web.http]
+    [entryPoints.web.http.redirections]
+      [entryPoints.web.http.redirections.entryPoint]
+        to = "websecure"
+        scheme = "https"
+
+[entryPoints.websecure]
+  address = ":443"
+
+[[tls.certificates]]
+
+[tls.stores]
+  [tls.stores.default]
+    [tls.stores.default.defaultCertificate]
+      certFile = "/var/lib/acme/scetrov.live/cert.pem"
+      keyFile = "/var/lib/acme/scetrov.live/key.pem"
+
+[tls.options]
+  [tls.options.default]
+    minVersion = "VersionTLS12"

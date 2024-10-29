@@ -5,11 +5,14 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
-  unstableTarball =
-    fetchTarball
-      https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
+  unstableTarball = fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz";
 
 in
 {
@@ -19,6 +22,9 @@ in
     ./hardware-configuration.nix
     ../common/richardsl.nix
     ../common/virtualization.nix
+    ../common/traefik.nix
+    ../common/acme.nix
+
     <agenix/modules/age.nix>
     (fetchTarball "https://github.com/nix-community/nixos-vscode-server/tarball/master")
   ];
@@ -28,11 +34,10 @@ in
   services.vscode-server.enable = true;
 
   nixpkgs.config = {
-    packageOverrides = pkgs: with pkgs; {
-      unstable = import unstableTarball {
-        config = config.nixpkgs.config;
+    packageOverrides =
+      pkgs: with pkgs; {
+        unstable = import unstableTarball { config = config.nixpkgs.config; };
       };
-    };
   };
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -42,13 +47,13 @@ in
   services.libinput.enable = false;
 
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [   
+  programs.nix-ld.libraries = with pkgs; [
     glibc
-    gcc.cc.lib 
+    gcc.cc.lib
   ];
 
   environment.systemPackages = with pkgs; [
-    (pkgs.callPackage <agenix/pkgs/agenix.nix> {})
+    (pkgs.callPackage <agenix/pkgs/agenix.nix> { })
     pkgs.unstable.neovim
     pkgs.unstable.oh-my-posh
     pkgs.wget
@@ -65,6 +70,8 @@ in
     pkgs.gcc
     pkgs.gnumake
     pkgs.yarn
+    pkgs.dig
+    pkgs.unstable.nixfmt-rfc-style
   ];
 
   system.copySystemConfiguration = true;

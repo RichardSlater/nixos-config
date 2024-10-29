@@ -1,0 +1,17 @@
+tasks:
+  rebuild:molasses:
+    command: nixos-rebuild -I nixos-config=/home/richardsl/nixos/src/molasses-wsl/configuration.nix switch
+
+  restart:whoami:
+    command: systemctl restart podman-whoami.service
+  restart:reverse-proxy:
+    command: systemctl restart podman-reverse-proxy.service
+
+  watch:reverse-proxy:
+    command: journalctl -u podman-reverse-proxy.service -f
+
+pipelines:
+  run:molasses:
+    - task: rebuild:molasses
+    - task: restart:whoami
+    - task: restart:reverse-proxy

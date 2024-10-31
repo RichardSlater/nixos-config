@@ -19,7 +19,6 @@
         ports = [
           "0.0.0.0:80:80"
           "0.0.0.0:443:443"
-          "0.0.0.0:8080:8080"
         ];
         volumes = [
           "/var/run/podman/podman.sock:/var/run/docker.sock"
@@ -27,13 +26,19 @@
           "/etc/traefik/traefik.toml:/etc/traefik/traefik.toml:ro"
           "/etc/traefik/dynamic.toml:/etc/traefik/dynamic.toml:ro"
         ];
+        labels = {
+          "traefik.http.routers.api.rule" = "Host(`dashboard.web3.scetrov.live`)";
+          "traefik.http.routers.api.service" = "api@internal";
+          "traefik.http.routers.api.tls" = "true";
+          "traefik.http.routers.api.entrypoints" = "websecure";
+        };
       };
       whoami = {
         image = "traefik/whoami";
         autoStart = true;
         labels = {
           "traefik.enable" = "true";
-          "traefik.http.routers.whoami.rule" = "Host(`whoami.scetrov.live`)";
+          "traefik.http.routers.whoami.rule" = "Host(`whoami.net.scetrov.live`)";
           "traefik.http.routers.whoami.tls" = "true";
         };
       };

@@ -1,7 +1,6 @@
 [api]
   dashboard = true
-  debug = true
-  insecure = true
+  insecure = false
 
 [providers.docker]
   endpoint = "unix:///var/run/docker.sock"

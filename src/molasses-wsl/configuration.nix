@@ -18,14 +18,13 @@ in
 {
   imports = [
     # include NixOS-WSL modules
+    <agenix/modules/age.nix>
     <nixos-wsl/modules>
     ./hardware-configuration.nix
     ../common/richardsl.nix
     ../common/virtualization.nix
     ../common/traefik.nix
     ../common/acme.nix
-
-    <agenix/modules/age.nix>
     (fetchTarball "https://github.com/nix-community/nixos-vscode-server/tarball/master")
   ];
 

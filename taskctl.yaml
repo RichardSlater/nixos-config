@@ -1,6 +1,8 @@
 tasks:
   rebuild:molasses:
     command: nixos-rebuild -I nixos-config=/home/richardsl/nixos/src/molasses-wsl/configuration.nix switch
+  rebuild:brix0001:
+    command: nixos-rebuild -I nixos-config=/home/richardsl/nixos/src/brix0001/configuration.nix switch
 
   restart:whoami:
     command: systemctl restart podman-whoami.service
@@ -13,5 +15,9 @@ tasks:
 pipelines:
   run:molasses:
     - task: rebuild:molasses
+    - task: restart:whoami
+    - task: restart:reverse-proxy
+  run:brix0001:
+    - task: rebuild:brix0001
     - task: restart:whoami
     - task: restart:reverse-proxy

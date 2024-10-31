@@ -12,11 +12,13 @@ in
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
       <agenix/modules/age.nix>
+      ./hardware-configuration.nix
       ../common/richardsl.nix
       ../common/openssh.nix
       ../common/virtualization.nix
+      ../common/traefik.nix
+      ../common/acme.nix
       (fetchTarball "https://github.com/nix-community/nixos-vscode-server/tarball/master")
     ];
 

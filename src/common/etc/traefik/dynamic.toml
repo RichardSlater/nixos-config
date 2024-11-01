@@ -1,9 +1,28 @@
 [tls.stores]
   [tls.stores.default]
     [tls.stores.default.defaultCertificate]
-      certFile = "/var/lib/acme/scetrov.live/cert.pem"
-      keyFile = "/var/lib/acme/scetrov.live/key.pem"
+    certFile = "/var/lib/acme/scetrov.live/cert.pem"
+    keyFile = "/var/lib/acme/scetrov.live/key.pem"
 
 [tls.options]
   [tls.options.default]
-    minVersion = "VersionTLS12"
+  minVersion = "VersionTLS12"
+
+[tcp]
+  [tcp.routers]
+    [tcp.routers.to-database]
+    entryPoints = [
+      "erigongrpc",
+      "erigonsnaptcp",
+      "erigonsnapudp",
+      "erigoneth68peeringtcp",
+      "erigoneth68peeringudp",
+      "erigoneth67peeringtcp",
+      "erigoneth67peeringudp",
+      "erigongrpcin",
+      "erigonsentineludp",
+      "erigonsentineltcp",
+    ]
+    # Catch every request (only available rule for non-tls routers. See below.)
+    rule = "HostSNI(`*`)"
+    service = "erigon-eth-holesky"

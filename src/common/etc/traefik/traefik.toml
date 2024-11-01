@@ -20,3 +20,29 @@
 
 [entryPoints.websecure]
   address = ":443"
+
+[entryPoints.erigongrpc]
+  address = ":9090"
+
+[entryPoints.erigonsnaptcp]
+  address = ":42069"
+[entryPoints.erigonsnapudp]
+  address = ":42069/udp"
+
+[entryPoints.erigoneth68peeringtcp]
+  address = ":30303"
+[entryPoints.erigoneth68peeringudp]
+  address = ":30303/udp"
+
+[entryPoints.erigoneth67peeringtcp]
+  address = ":30304"
+[entryPoints.erigoneth67peeringudp]
+  address = ":30304/udp"
+
+[entryPoints.erigongrpcin]
+  address = ":9091"
+
+[entryPoints.erigonsentineludp]
+  address = ":4000"
+[entryPoints.erigonsentineltcp]
+  address = ":4001"

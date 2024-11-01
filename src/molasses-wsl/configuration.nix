@@ -25,6 +25,7 @@ in
     ../common/virtualization.nix
     ../common/traefik.nix
     ../common/acme.nix
+    ../common/cockpit.nix
     (fetchTarball "https://github.com/nix-community/nixos-vscode-server/tarball/master")
   ];
 
@@ -55,6 +56,7 @@ in
     (pkgs.callPackage <agenix/pkgs/agenix.nix> { })
     pkgs.unstable.neovim
     pkgs.unstable.oh-my-posh
+    pkgs.unstable.cockpit
     pkgs.wget
     pkgs.bat
     pkgs.zsh

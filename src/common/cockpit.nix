@@ -10,7 +10,7 @@
     cockpit-key = {
       source = "/var/lib/acme/scetrov.live/key.pem";
       target = "cockpit/ws-certs.d/10-scetrov-live.key";
-      mode = "300";
+      mode = "0300";
     };
   };
 

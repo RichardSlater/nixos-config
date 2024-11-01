@@ -16,8 +16,12 @@ pipelines:
   run:molasses:
     - task: rebuild:molasses
     - task: restart:whoami
+      depends_on: rebuild:molasses
     - task: restart:reverse-proxy
+      depends_on: rebuild:molasses
   run:brix0001:
     - task: rebuild:brix0001
     - task: restart:whoami
+      depends_on: rebuild:brix0001
     - task: restart:reverse-proxy
+      depends_on: rebuild:brix0001

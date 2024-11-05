@@ -20,6 +20,7 @@ in
       ../common/traefik.nix
       ../common/acme.nix
       ../common/cockpit.nix
+      ../common/erigon-ethereum-holesky.nix
       (fetchTarball "https://github.com/nix-community/nixos-vscode-server/tarball/master")
     ];
 

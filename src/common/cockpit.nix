@@ -16,7 +16,7 @@
 
   services.cockpit = {
     enable = true;
-    port = 9090;
+    port = 8880;
     openFirewall = true;
     settings = {
       WebService = {

@@ -1,0 +1,12 @@
+datadir = "/var/lib/erigon-ethereum-holesky"
+internalcl = true
+chain = "holesky"
+prune = "hrtc"
+
+http = true
+"http.port" = 8454
+"http.vhosts" = "*"
+"http.addr" = "0.0.0.0"
+"http.api" = ["eth", "debug", "web3", "net", "debug", "trace", "txpool"]
+
+nat = "stun"

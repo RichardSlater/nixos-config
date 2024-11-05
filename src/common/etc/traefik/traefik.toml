@@ -1,3 +1,5 @@
+# Static Traefik Configuration
+
 [api]
   dashboard = true
   insecure = false
@@ -21,28 +23,30 @@
 [entryPoints.websecure]
   address = ":443"
 
-[entryPoints.erigongrpc]
-  address = ":9090"
+[entryPoints.grpc-tcp]
+  address = ":9090/tcp"
 
-[entryPoints.erigonsnaptcp]
-  address = ":42069"
-[entryPoints.erigonsnapudp]
+[entryPoints.snap-tcp]
+  address = ":42069/tcp"
+[entryPoints.snap-udp]
   address = ":42069/udp"
 
-[entryPoints.erigoneth68peeringtcp]
-  address = ":30303"
-[entryPoints.erigoneth68peeringudp]
+[entryPoints.eth68-tcp]
+  address = ":30303/tcp"
+[entryPoints.eth68-udp]
   address = ":30303/udp"
 
-[entryPoints.erigoneth67peeringtcp]
-  address = ":30304"
-[entryPoints.erigoneth67peeringudp]
+[entryPoints.eth67-tcp]
+  address = ":30304/tcp"
+[entryPoints.eth67-udp]
   address = ":30304/udp"
 
-[entryPoints.erigongrpcin]
-  address = ":9091"
+[entryPoints.sentinel-udp]
+  address = ":4000/udp"
+[entryPoints.sentinel-tcp]
+  address = ":4001/tcp"
 
-[entryPoints.erigonsentineludp]
-  address = ":4000"
-[entryPoints.erigonsentineltcp]
-  address = ":4001"
+# [tracing]
+#   addInternals = true
+#   serviceName = "reverse-proxy"
+#   sampleRate = 0.2

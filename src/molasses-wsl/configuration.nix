@@ -31,8 +31,16 @@ in
   ];
 
   networking.hostName = "molasses";
-
   services.vscode-server.enable = true;
+
+  system.copySystemConfiguration = true;
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = true;
+    flags = [
+      "-I" "nixos-config=/home/richardsl/nixos/src/molasses-wsl/configuration.nix"
+    ];
+  };
 
   nixpkgs.config = {
     packageOverrides =
@@ -77,9 +85,6 @@ in
     pkgs.unstable.nmap
     pkgs.unstable.nixfmt-rfc-style
   ];
-
-  system.copySystemConfiguration = true;
-  system.autoUpgrade.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

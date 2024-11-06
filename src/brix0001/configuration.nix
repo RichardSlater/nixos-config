@@ -81,20 +81,19 @@ in
   #networking.firewall.allowedUDPPorts = [ ... ];
 
   system.copySystemConfiguration = true;
-  system.autoUpgrade.enable = true;
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = true;
+    flags = [
+      "-I" "nixos-config=/home/richardsl/nixos/src/brix0001/configuration.nix"
+    ];
+  };
 
   networking.nat = {
     enable = true;
     internalInterfaces = ["ve-+"];
     externalInterface = "enp0s31f6";
     enableIPv6 = false;
-  };
-
-  virtualisation.oci-containers.containers = {
-    nginxhello = {
-      image = "nginxdemos/nginx-hello";
-      ports = ["127.0.0.1:8080:8080"];
-    };
   };
 
   # This option defines the first version of NixOS you have installed on this particular machine,

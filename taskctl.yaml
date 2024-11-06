@@ -3,6 +3,10 @@ tasks:
     command: nixos-rebuild -I nixos-config=/home/richardsl/nixos/src/molasses-wsl/configuration.nix switch
   rebuild:brix0001:
     command: nixos-rebuild -I nixos-config=/home/richardsl/nixos/src/brix0001/configuration.nix switch
+  upgrade:molasses:
+    command: nixos-rebuild -I nixos-config=/home/richardsl/nixos/src/molasses-wsl/configuration.nix switch --upgrade
+  upgrade:brix0001:
+    command: nixos-rebuild -I nixos-config=/home/richardsl/nixos/src/brix0001/configuration.nix switch --upgrade
 
   restart:whoami:
     command: systemctl restart podman-whoami.service

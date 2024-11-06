@@ -10,7 +10,6 @@
   
   security.acme.acceptTerms = true;
   security.acme.defaults.email = "letsencrypt@richard-slater.co.uk";
-  # security.acme.defaults.server = "https://acme-staging-v02.api.letsencrypt.org/directory";
   security.acme.certs."scetrov.live" = {
     dnsProvider = "cloudflare";
     dnsResolver = "1.1.1.1:53";

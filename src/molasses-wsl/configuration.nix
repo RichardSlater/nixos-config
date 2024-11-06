@@ -33,6 +33,13 @@ in
   networking.hostName = "molasses";
   services.vscode-server.enable = true;
 
+  nix.nixPath = 
+  [
+    "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+    "nixos-config=/home/richardsl/nixos/src/molasses-wsl/configuration.nix"
+    "/nix/var/nix/profiles/per-user/root/channels"
+  ];
+
   system.copySystemConfiguration = true;
   system.autoUpgrade = {
     enable = true;

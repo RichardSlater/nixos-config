@@ -42,6 +42,8 @@
           "traefik.http.routers.erigon-ethereum-holesky-rpc.entrypoints" = "websecure";
           "traefik.http.routers.erigon-ethereum-holesky-rpc.service" = "erigon-holesky-rpc-service";
           "traefik.http.services.erigon-holesky-rpc-service.loadbalancer.server.port" = "8454";
+
+          # TCP
           "traefik.tcp.routers.erigon-ethereum-holesky-snap.entrypoints" = "snap-tcp";
           "traefik.tcp.routers.erigon-ethereum-holesky-snap.rule" = "HostSNI(`*`)";
           "traefik.tcp.routers.erigon-ethereum-holesky-snap.service" = "erigon-holesky-snap";
@@ -59,7 +61,7 @@
           "traefik.tcp.routers.erigon-ethereum-holesky-sentinel.service" = "erigon-holesky-sentinel";
           "traefik.tcp.services.erigon-holesky-sentinel.loadbalancer.server.port" = "4001";
           
-
+          # UDP
           "traefik.udp.routers.erigon-ethereum-holesky-snap.entrypoints" = "snap-udp";
           "traefik.udp.routers.erigon-ethereum-holesky-snap.service" = "erigon-holesky-snap";
           "traefik.udp.services.erigon-holesky-snap.loadbalancer.server.port" = "42069";

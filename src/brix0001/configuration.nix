@@ -77,9 +77,6 @@ in
     pkgs.gettext # required for envsubst
   ];
 
-  networking.firewall.allowedTCPPorts = [ 22 80 443 ];
-  #networking.firewall.allowedUDPPorts = [ ... ];
-
   system.copySystemConfiguration = true;
   system.autoUpgrade = {
     enable = true;
@@ -115,5 +112,3 @@ in
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "24.05"; # Did you read the comment?
 }
-
-

@@ -46,6 +46,11 @@
 [entryPoints.sentinel-tcp]
   address = ":4001/tcp"
 
+[entryPoints.op-node-p2p-udp]
+  address = ":9003/udp"
+[entryPoints.op-node-p2p-tcp]
+  address = ":9003/tcp"
+
 # [tracing]
 #   addInternals = true
 #   serviceName = "reverse-proxy"

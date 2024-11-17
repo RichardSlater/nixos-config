@@ -28,14 +28,14 @@
     oci-containers.backend = "podman";
   };
 
-  networking.firewall.enable = false; # DANGEROUS
-  services.openssh.openFirewall = false;
+  networking.firewall.enable = true; # DANGEROUS
+  services.openssh.openFirewall = true;
 
-  # # allow for DNS across the podman[0-9] interface
-  # networking.firewall.interfaces."podman+".allowedUDPPorts = [ 53 ];
+  # allow for DNS across the podman[0-9] interface
+  networking.firewall.interfaces."podman+".allowedUDPPorts = [ 53 ];
 
-  # # forward ports to traefik
-  # networking.firewall = {
-  #   allowedTCPPorts = [ 22 80 443 ];
-  # };
+  # forward ports to traefik
+  networking.firewall = {
+    allowedTCPPorts = [ 22 80 443 2069 4000 4001 9003 7300 30303 30304 39393 42069 ];
+  };
 }

@@ -27,6 +27,7 @@ in
     ../common/acme.nix
     ../common/cockpit.nix
     ../common/erigon-ethereum-holesky.nix
+    ../common/opstack-garnet.nix
     (fetchTarball "https://github.com/nix-community/nixos-vscode-server/tarball/master")
   ];
 

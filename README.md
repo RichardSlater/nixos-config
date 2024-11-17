@@ -21,3 +21,15 @@ Additionally the ssh key used by age must be included in `~/.ssh`:
 > ```sh
 > chmod 400 ~/.ssh/id_ed25519
 > ```
+
+## DNS
+
+```
+whoami.net.scetrov.live
+eth-garnet-rpc.web4.scetrov.live
+cockpit-brix0001.net.scetrov.live
+eth-holesky-rpc.web3.scetrov.live
+garnet-rpc.web3.scetrov.live
+garnet-rpcws.web3.scetrov.live
+dashboard.web3.scetrov.live
+```

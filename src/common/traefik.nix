@@ -11,8 +11,8 @@
     target = "traefik/dynamic.toml";
   };
 
-  networking.firewall.allowedTCPPorts = [ 22 80 443 42069 30303 30304 4001];
-  networking.firewall.allowedUDPPorts = [ 42069 30303 30304 4000 ];
+  networking.firewall.allowedTCPPorts = [ 22 80 443 42069 30303 30304 4001 39393 9003 7300 ];
+  networking.firewall.allowedUDPPorts = [ 42069 30303 30304 4000 39393 9003 ];
 
   virtualisation = {
     oci-containers.containers = {

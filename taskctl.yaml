@@ -14,9 +14,10 @@ tasks:
     command: systemctl restart podman-reverse-proxy.service
   restart:holesky-node:
     command: systemctl restart podman-erigon-ethereum-holesky.service
-
-  watch:reverse-proxy:
-    command: journalctl -u podman-reverse-proxy.service -f
+  restart:garnet-op-geth:
+    command: systemctl restart podman-opstack-garnet-op-geth.service
+  restart:garnet-op-node:
+    command: systemctl restart podman-opstack-garnet-op-node.service
 
 pipelines:
   run:molasses:
@@ -24,6 +25,10 @@ pipelines:
     - task: restart:whoami
       depends_on: rebuild:molasses
     - task: restart:reverse-proxy
+      depends_on: rebuild:molasses
+    - task: restart:garnet-op-geth
+      depends_on: rebuild:molasses
+    - task: restart:garnet-op-node
       depends_on: rebuild:molasses
     # - task: restart:holesky-node
     #   depends_on: rebuild:molasses
@@ -35,9 +40,3 @@ pipelines:
       depends_on: rebuild:brix0001
     - task: restart:holesky-node
       depends_on: rebuild:brix0001
-
-watchers:
-  watch:molasses:
-    watch: [ "src/common/*.nix", "src/common/etc/**", "src/molasses-wsl/*.nix", "src/secrets/*.nix" ]
-    events: [ "create", "write", "remove", "rename" ]
-    task: rebuild:molasses

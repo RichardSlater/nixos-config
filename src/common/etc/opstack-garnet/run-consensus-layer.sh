@@ -3,7 +3,7 @@
 cd /data
 
 /usr/local/bin/op-node \
-  --l1=http://erigon-ethereum-holesky:8454 \
+  --l1=https://rpc.ankr.com/eth_holesky \
   --l1.beacon.ignore \
   --l2=http://opstack-garnet-op-geth:8551 \
   --l2.jwt-secret=/data/geth/jwtsecret \

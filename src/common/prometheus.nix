@@ -8,7 +8,7 @@
 
   virtualisation = {
     oci-containers.containers = {
-      opstack-garnet-op-geth = {
+      prometheus = {
         image = "prom/prometheus";
         autoStart = true;
         volumes = [
@@ -23,7 +23,7 @@
           "traefik.http.routers.prometheus.tls" = "true";
           "traefik.http.routers.prometheus.entrypoints" = "websecure";
           "traefik.http.routers.prometheus.service" = "prometheus-service";
-          "traefik.http.services.prometheus-service.loadbalancer.server.port" = "8545";
+          "traefik.http.services.prometheus-service.loadbalancer.server.port" = "9090";
         };
       };
     };

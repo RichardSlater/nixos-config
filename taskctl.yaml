@@ -38,5 +38,3 @@ pipelines:
       depends_on: rebuild:brix0001
     - task: restart:reverse-proxy
       depends_on: rebuild:brix0001
-    - task: restart:holesky-node
-      depends_on: rebuild:brix0001

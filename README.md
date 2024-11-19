@@ -32,4 +32,5 @@ eth-holesky-rpc.web3.scetrov.live
 garnet-rpc.web3.scetrov.live
 garnet-rpcws.web3.scetrov.live
 dashboard.web3.scetrov.live
+metrics-dashboard.net.scetrov.live
 ```

@@ -53,7 +53,7 @@
           "traefik.http.routers.opstack-garnet-op-geth-rpc.tls" = "true";
           "traefik.http.routers.opstack-garnet-op-geth-rpc.entrypoints" = "websecure";
           "traefik.http.routers.opstack-garnet-op-geth-rpc.service" = "opstack-garnet-op-geth-service";
-          "traefik.http.services.opstack-garnet-op-geth-service.loadbalancer.server.port" = "8454";
+          "traefik.http.services.opstack-garnet-op-geth-service.loadbalancer.server.port" = "8545";
 
           # HTTPS WSS
           "traefik.http.routers.opstack-garnet-op-geth-rpcws.rule" = "Host(`garnet-rpcws.web3.scetrov.live`) || Host(`garnet-rpcws-test.web3.scetrov.live`)";

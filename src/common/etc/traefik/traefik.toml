@@ -11,6 +11,10 @@
   filename = "/etc/traefik/dynamic.toml"
   watch = true
 
+[metrics]
+  addInternals = true
+  [metrics.prometheus]
+
 [entryPoints.web]
   address = ":80"
 

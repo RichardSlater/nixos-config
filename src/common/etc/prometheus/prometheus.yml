@@ -4,4 +4,4 @@ global:
 scrape_configs:
 - job_name: node
   static_configs:
-  - targets: ['opstack-garnet-op-node:7300', 'erigon-ethereum-holesky:6060', 'host.containers.internal:9100']
+  - targets: ['opstack-garnet-op-node:7300', 'erigon-ethereum-holesky:6060/debug/metrics/prometheus', 'host.containers.internal:9100']

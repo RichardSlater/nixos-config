@@ -8,8 +8,6 @@ tasks:
   upgrade:brix0001:
     command: nixos-rebuild -I nixos-config=/home/richardsl/nixos/src/brix0001/configuration.nix switch --upgrade
 
-  restart:whoami:
-    command: systemctl restart podman-whoami.service
   restart:reverse-proxy:
     command: systemctl restart podman-reverse-proxy.service
   restart:holesky-node:
@@ -18,23 +16,15 @@ tasks:
     command: systemctl restart podman-opstack-garnet-op-geth.service
   restart:garnet-op-node:
     command: systemctl restart podman-opstack-garnet-op-node.service
+  restart:prometheus:
+    command: systemctl restart podman-prometheus.service
 
 pipelines:
   run:molasses:
     - task: rebuild:molasses
-    - task: restart:whoami
-      depends_on: rebuild:molasses
     - task: restart:reverse-proxy
       depends_on: rebuild:molasses
-    - task: restart:garnet-op-geth
-      depends_on: rebuild:molasses
-    - task: restart:garnet-op-node
-      depends_on: rebuild:molasses
-    # - task: restart:holesky-node
-    #   depends_on: rebuild:molasses
   run:brix0001:
     - task: rebuild:brix0001
-    - task: restart:whoami
-      depends_on: rebuild:brix0001
     - task: restart:reverse-proxy
       depends_on: rebuild:brix0001

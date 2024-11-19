@@ -6,6 +6,16 @@
     target = "prometheus/prometheus.yml";
   };
 
+  services.prometheus = {
+    exporters = {
+      node = {
+        enable = true;
+        enabledCollectors = [ "systemd" ];
+        port = 9100;
+      };
+    };
+  };
+
   virtualisation = {
     oci-containers.containers = {
       prometheus = {
@@ -19,7 +29,7 @@
           "traefik.enable" = "true";
 
           # HTTPS RPC
-          "traefik.http.routers.prometheus.rule" = "Host(`metrics-dashboard.net.scetrov.live`) || Host(`metrics-dashboard-test.net.scetrov.live`)";
+          "traefik.http.routers.prometheus.rule" = "Host(`metrics.net.scetrov.live`) || Host(`metrics-test.net.scetrov.live`)";
           "traefik.http.routers.prometheus.tls" = "true";
           "traefik.http.routers.prometheus.entrypoints" = "websecure";
           "traefik.http.routers.prometheus.service" = "prometheus-service";

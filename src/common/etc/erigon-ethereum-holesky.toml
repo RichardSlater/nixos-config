@@ -9,4 +9,7 @@ http = true
 "http.addr" = "0.0.0.0"
 "http.api" = ["eth", "debug", "web3", "net", "debug", "trace", "txpool"]
 
+metrics = true
+"metrics.port" = 6060
+
 nat = "stun"

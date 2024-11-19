@@ -25,12 +25,10 @@ Additionally the ssh key used by age must be included in `~/.ssh`:
 ## DNS
 
 ```
-whoami.net.scetrov.live
-eth-garnet-rpc.web3.scetrov.live
 cockpit-brix0001.net.scetrov.live
 eth-holesky-rpc.web3.scetrov.live
 garnet-rpc.web3.scetrov.live
 garnet-rpcws.web3.scetrov.live
 dashboard.web3.scetrov.live
-metrics-dashboard.net.scetrov.live
+metrics.net.scetrov.live
 ```

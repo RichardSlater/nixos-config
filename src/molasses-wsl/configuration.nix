@@ -93,6 +93,7 @@ in
     pkgs.htop
     pkgs.unstable.nmap
     pkgs.unstable.nixfmt-rfc-style
+    pkgs.prometheus-node-exporter
   ];
 
   # This value determines the NixOS release from which the default

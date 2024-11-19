@@ -44,15 +44,6 @@
           "traefik.http.routers.api.entrypoints" = "websecure";
         };
       };
-      whoami = {
-        image = "traefik/whoami";
-        autoStart = true;
-        labels = {
-          "traefik.enable" = "true";
-          "traefik.http.routers.whoami.rule" = "Host(`whoami.net.scetrov.live`) || Host(`whoami-test.net.scetrov.live`)";
-          "traefik.http.routers.whoami.tls" = "true";
-        };
-      };
     };
   };
 }

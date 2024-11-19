@@ -76,7 +76,7 @@ in
     pkgs.gcc
     pkgs.gnumake
     pkgs.yarn
-    pkgs.gettext # required for envsubst
+    pkgs.prometheus-node-exporter
   ];
 
   system.copySystemConfiguration = true;

@@ -4,4 +4,4 @@ global:
 scrape_configs:
 - job_name: node
   static_configs:
-  - targets: ['opstack-garnet-op-node:7300']
+  - targets: ['opstack-garnet-op-node:7300', 'erigon-ethereum-holesky:6060', 'host.containers.internal:9100']

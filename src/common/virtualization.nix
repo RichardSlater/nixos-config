@@ -36,6 +36,6 @@
 
   # forward ports to traefik
   networking.firewall = {
-    allowedTCPPorts = [ 22 80 443 2069 4000 4001 9003 9090 7300 30303 30304 39393 42069 ];
+    allowedTCPPorts = [ 22 80 443 2069 4000 4001 8880 9003 7300 30303 30304 39393 42069 ];
   };
 }

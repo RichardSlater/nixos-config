@@ -27,7 +27,7 @@
   virtualisation = {
     oci-containers.containers = {
       erigon-ethereum-holesky = {
-        image = "erigontech/erigon:v2.60.9";
+        image = "erigontech/erigon:latest";
         cmd = [ "--config" "/etc/erigon-ethereum-holesky.toml" ];
         autoStart = true;
         volumes = [

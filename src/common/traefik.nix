@@ -17,7 +17,7 @@
   virtualisation = {
     oci-containers.containers = {
       reverse-proxy = {
-        image = "traefik:v3.1";
+        image = "traefik:latest";
         autoStart = true;
         ports = [
           "0.0.0.0:80:80/tcp"

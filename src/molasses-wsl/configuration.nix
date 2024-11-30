@@ -24,6 +24,8 @@ in
     ../common/richardsl.nix
     ../common/virtualization.nix
     ../common/traefik.nix
+    ../common/prometheus.nix
+    ../common/grafana.nix
     ../common/acme.nix
     ../common/cockpit.nix
     # ../common/erigon-ethereum-holesky.nix

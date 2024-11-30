@@ -23,6 +23,7 @@ in
       ../common/erigon-ethereum-holesky.nix
       ../common/opstack-garnet.nix
       ../common/prometheus.nix
+      ../common/frontier-collector.nix
       (fetchTarball "https://github.com/nix-community/nixos-vscode-server/tarball/master")
     ];
 

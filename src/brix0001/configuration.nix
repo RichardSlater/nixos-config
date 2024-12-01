@@ -67,6 +67,7 @@ in
     pkgs.wget
     pkgs.bat
     pkgs.zsh
+    pkgs.htop
     pkgs.tmux
     pkgs.fzf
     pkgs.zsh-syntax-highlighting
